@@ -27,13 +27,15 @@ public class Calc {
             System.out.print("Enter the first number: ");
             int num1 = input.nextInt();
             if (num1 == 0) {
-                runCalc = false;
+                System.out.println("Calculator closed, Bye :)");
+                break;
             }
 
             System.out.print("Enter the second number: ");
             int num2 = input.nextInt();
             if (num2 == 0) {
-                runCalc = false;
+                System.out.println("Calculator closed, Bye :)");
+                break;
             }
 
             System.out.println("Select operation i.e\n 1 = add\n 2 = subtract\n 3 = multiply\n 4 = divide\n 0 = exit");
