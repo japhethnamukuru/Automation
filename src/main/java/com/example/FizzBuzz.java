@@ -21,6 +21,7 @@ public class FizzBuzz {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
+//        using while loop
         while (true) {
             System.out.print("Enter a number: ");
             int value = input.nextInt();
@@ -31,6 +32,15 @@ public class FizzBuzz {
             } else {
                 System.out.println(printFizzBuzz(value));
             }
+        }
+
+//        Using for loop
+        System.out.println("Print fizzbuzz over a range");
+        System.out.print("Enter the range value: ");
+        int range_value = input.nextInt();
+
+        for (int i = 1; i<= range_value; i++) {
+            System.out.print(printFizzBuzz(i) + "\t");
         }
     }
 }
