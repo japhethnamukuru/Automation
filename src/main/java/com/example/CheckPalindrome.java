@@ -1,44 +1,38 @@
 package com.example;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class CheckPalindrome {
-    public static String checkPalindrome (String input_text) {
-        String Result;
-        String [] check_text = input_text.split("");
-        String [] split_text = input_text.split("");
 
-        for (int i = 0; i < split_text.length / 2; i++) {
-            String temp = split_text[i];
-            split_text[i] = split_text[split_text.length - 1 - i];
-            split_text[split_text.length - 1 - i] = temp;
-        }
+    public static String checkPalindrome(String inputText) {
+        // Remove spaces and make lowercase
+        String cleaned = inputText.replaceAll("\\s+", "").toLowerCase();
 
-        if (Arrays.equals(check_text, split_text)) {
-            Result = "Palindrome";
+        // Reverse the string
+        String reversed = new StringBuilder(cleaned).reverse().toString();
+
+        if (cleaned.equals(reversed)) {
+            return "Palindrome";
         } else {
-            Result = "Not a palindrome";
+            return "Not a palindrome";
         }
-
-        return Result;
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        String exit = "exit";
-
+        System.out.println("Enter text to check (type 'exit' to quit):");
         while (true) {
-            System.out.print("Enter A text: ");
-            String input_text = input.nextLine();
+            System.out.print("> ");
+            String inputText = input.nextLine();
 
-            if (input_text.equals(exit)) {
+            if (inputText.equalsIgnoreCase("exit")) {
                 break;
             }
 
-            System.out.println(checkPalindrome(input_text));
+            System.out.println(checkPalindrome(inputText));
         }
 
+        System.out.println("Program terminated. Bye!");
     }
 }
