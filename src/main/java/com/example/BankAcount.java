@@ -3,7 +3,7 @@ package com.example;
 public class BankAcount {
     private String owner;
     private double balance;
-    private double minBalance = 500;
+    private final double minBalance = 500;
 
     public BankAcount(String owner, double balance) {
         this. owner = owner;
@@ -27,16 +27,22 @@ public class BankAcount {
     }
 
 //    methods
-    public double depositAmount(double depositAmount) {
-        return this.balance + depositAmount;
+    public void depositAmount(double depositAmount) {
+        if (depositAmount <= 0) {
+            System.out.println("Amount must be greater than 0");
+        } else {
+            this.balance += depositAmount;
+        }
+//        return this.balance;
     }
 
-    public double withdrawAmount(double withdrawAmount) {
-        if (this.balance - withdrawAmount < minBalance) {
+    public void withdrawAmount(double withdrawAmount) {
+        if (withdrawAmount <= 0) {
+            System.out.println("Amount must be greater than 0");
+        } else if (this.balance - withdrawAmount < minBalance) {
             System.out.println("Insufficient funds");
-            return 0;
         } else {
-            return this.balance - withdrawAmount;
+            this.balance -= withdrawAmount;
         }
     }
 }
