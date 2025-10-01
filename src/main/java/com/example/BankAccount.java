@@ -1,11 +1,11 @@
 package com.example;
 
-public class BankAcount {
+public class BankAccount {
     private String owner;
     private double balance;
     private final double minBalance = 500;
 
-    public BankAcount(String owner, double balance) {
+    public BankAccount(String owner, double balance) {
         this. owner = owner;
         this.balance = balance;
     }
@@ -39,10 +39,14 @@ public class BankAcount {
     public void withdrawAmount(double withdrawAmount) {
         if (withdrawAmount <= 0) {
             System.out.println("Amount must be greater than 0");
-        } else if (this.balance - withdrawAmount < minBalance) {
-            System.out.println("Insufficient funds");
         } else {
-            this.balance -= withdrawAmount;
+            double projectedBalance = this.balance - withdrawAmount;
+            if (projectedBalance < minBalance) {
+                System.out.println("Insufficient funds");
+            } else {
+                this.balance -= withdrawAmount;
+            }
         }
+
     }
 }

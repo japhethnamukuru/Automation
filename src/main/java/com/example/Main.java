@@ -2,19 +2,19 @@ package com.example;
 
 public class Main {
     public static void main(String[] args) {
-        Employee emp_1 = new Employee("Agnes", 30, 140000, Location.Nairob);
-        Employee emp_2 = new Employee("Sharley", 30, 140000, Location.Kisumu);
 
+            ValidateInput validator = new ValidateInput();
+            BankAccount acc;
 
+            String owner = validator.getOwnerName();
+            double deposit = validator.getInitialDeposit();
 
-        BankAcount acc1 = new BankAcount("Jeff", 500);
+            try {
+                acc = new BankAccount(owner, deposit);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        System.out.println(acc.getBalance());
 
-        acc1.setOwner("Martin");
-        acc1.depositAmount(35000);
-//        System.out.println(acc1.getOwner());
-        System.out.println(acc1.getBalance());
-        acc1.withdrawAmount(35200);
-
-        System.out.println(acc1.getBalance());
     }
 }
