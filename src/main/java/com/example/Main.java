@@ -13,7 +13,8 @@ public class Main {
         acc1.depositAmount(35000);
 //        System.out.println(acc1.getOwner());
         System.out.println(acc1.getBalance());
+        acc1.withdrawAmount(35200);
 
-//        System.out.println(acc1.withdrawAmount(300));
+        System.out.println(acc1.getBalance());
     }
 }
